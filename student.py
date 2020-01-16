@@ -1,4 +1,7 @@
 class Student:
+    def __str__(self):
+        return f"{self.full_name} is {self.age} years old and in cohort {self.cohort_number}"
+
     @property
     def first_name(self):
         try:
@@ -36,7 +39,7 @@ class Student:
 
     @age.setter
     def age(self, new_age):
-        if type(age) is int:
+        if type(new_age) is int:
             self.__age = new_age
         else:
             raise TypeError("Age must be an integer")
@@ -60,9 +63,10 @@ class Student:
         return f"{self.first_name or 'N/A'} {self.last_name or 'N/A'}"
 
 
-student = Student()
+mike = Student()
+mike.first_name = "Mike"
+mike.last_name = "Ellis"
+mike.age = 35
+mike.cohort_number = 39
 
-student.first_name = "Bob"
-student.last_name = "Bobert"
-
-print(student.full_name)
+print(mike)
